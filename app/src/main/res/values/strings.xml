@@ -13,6 +13,7 @@
     <string name="buoi_sang">Sáng</string>
     <string name="buoi_chieu">Chiều</string>
     <string name="buoi_toi">Tối</string>
+    <string name="so_buoi_da_chon">Đã chọn: 0 buổi</string>
     <string name="label_thong_bao">Nhận thông báo qua email</string>
     <string name="uu_tien_on">ƯU TIÊN: BẬT</string>
     <string name="uu_tien_off">ƯU TIÊN: TẮT</string>

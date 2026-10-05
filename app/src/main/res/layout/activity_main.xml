@@ -108,6 +108,14 @@
             android:layout_height="wrap_content"
             android:text="@string/buoi_toi" />
 
+        <TextView
+            android:id="@+id/tvSoBuoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/so_buoi_da_chon"
+            android:textStyle="bold" />
+
         <!-- ===== Switch (Material) và ToggleButton (widget cũ) ===== -->
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/swThongBao"

@@ -9,9 +9,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spMonHoc;
     private RadioGroup rgHeDaoTao;
     private CheckBox cbSang, cbChieu, cbToi;
+    private TextView tvSoBuoi;
     private MaterialSwitch swThongBao;
     private ToggleButton tgUuTien;
 
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         cbSang = findViewById(R.id.cbSang);
         cbChieu = findViewById(R.id.cbChieu);
         cbToi = findViewById(R.id.cbToi);
+        tvSoBuoi = findViewById(R.id.tvSoBuoi);
         swThongBao = findViewById(R.id.swThongBao);
         tgUuTien = findViewById(R.id.tgUuTien);
         Button btnXacNhan = findViewById(R.id.btnXacNhan);
@@ -81,6 +85,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // ---- CheckBox: lắng nghe thay đổi ----
+        CompoundButton.OnCheckedChangeListener buoiListener =
+                (buttonView, isChecked) -> capNhatSoBuoi();
+        cbSang.setOnCheckedChangeListener(buoiListener);
+        cbChieu.setOnCheckedChangeListener(buoiListener);
+        cbToi.setOnCheckedChangeListener(buoiListener);
 
         // ---- RadioGroup: chỉ chọn được một ----
         rgHeDaoTao.setOnCheckedChangeListener((group, checkedId) -> {
@@ -97,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
         btnLamLai.setOnClickListener(v -> lamLai());
     }
 
+    private void capNhatSoBuoi() {
+        int soBuoi = 0;
+
+        if(cbSang.isChecked()) soBuoi++;
+        if(cbChieu.isChecked()) soBuoi++;
+        if(cbToi.isChecked()) soBuoi++;
+
+        tvSoBuoi.setText("Đã chọn: " + soBuoi + " buổi");
+    }
 
     //** Kiểm tra dữ liệu rồi chuyển sang màn hình xác nhận. */
     private void xacNhan() {
@@ -155,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         cbSang.setChecked(false);
         cbChieu.setChecked(false);
         cbToi.setChecked(false);
+        capNhatSoBuoi();
         swThongBao.setChecked(true);
         tgUuTien.setChecked(false);
         edtHoTen.requestFocus();
