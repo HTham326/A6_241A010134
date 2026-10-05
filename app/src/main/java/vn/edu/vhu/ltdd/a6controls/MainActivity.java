@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup rgHeDaoTao;
     private CheckBox cbSang, cbChieu, cbToi;
     private TextView tvSoBuoi;
-    private MaterialSwitch swThongBao;
+    private MaterialSwitch swThongBao, swDarkMode;
     private ToggleButton tgUuTien;
 
     @Override
@@ -63,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
         cbToi = findViewById(R.id.cbToi);
         tvSoBuoi = findViewById(R.id.tvSoBuoi);
         swThongBao = findViewById(R.id.swThongBao);
+        swDarkMode = findViewById(R.id.swDarkMode);
+
+        swDarkMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked) {
+                AppCompatDelegate.setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_YES
+                );
+            } else {
+                AppCompatDelegate.setDefaultNightMode(
+                        AppCompatDelegate.MODE_NIGHT_NO
+                );
+            }
+        });
         tgUuTien = findViewById(R.id.tgUuTien);
         Button btnXacNhan = findViewById(R.id.btnXacNhan);
         Button btnLamLai = findViewById(R.id.btnLamLai);

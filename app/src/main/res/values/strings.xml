@@ -30,5 +30,6 @@
     <string name="err_mssv">MSSV phải gồm đúng 10 chữ số</string>
     <string name="err_he">Vui lòng chọn hệ đào tạo</string>
     <string name="err_buoi">Vui lòng chọn ít nhất một buổi học</string>
+    <string name="dark_mode">Chế độ tối</string>
     <string name="tom_tat_format">Họ tên: %1$s\nMSSV: %2$s\nHọc phần: %3$s\nHệ đào tạo: %4$s\nBuổi học: %5$s\nNhận thông báo: %6$s\nChế độ ưu tiên: %7$s</string>
 </resources>
